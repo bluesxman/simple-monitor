@@ -1,0 +1,4 @@
+region: us-east-1
+topicArn: arn:aws:sns:us-east-1:1234567890:my-topic
+targetUrl: http:/mysite.mydomain.com/
+interval: 600
