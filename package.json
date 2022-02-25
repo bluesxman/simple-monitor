@@ -1,0 +1,15 @@
+{
+  "name": "simple-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-sns": "^3.52.0",
+    "yaml": "^1.10.2"
+  }
+}
