@@ -18,7 +18,7 @@ async function send(msg) {
 
 async function testTarget(url = config.targetUrl) {
   try {
-    const res = await axios.get(url)
+    const res = await axios.get(url, {timeout: 5000})
     return res.status
   } catch (e) {
     return e.message
@@ -35,13 +35,10 @@ async function main() {
   while (true) {
     await sleep(config.interval * 1000)
     const status = await testTarget()
-    console.log(status)
+    console.log(`${Date()} - ${status}`)
     if (status !== lastStatus) {
-      try {
-        send(`Status changed to: ${status}`)
-      } catch (e) {
-        console.log(e)
-      }
+      // if SNS throws then crash the process; run with PM2
+      send(`Status changed to: ${status}`)
       lastStatus = status
     }
   }
